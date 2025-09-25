@@ -1,15 +1,22 @@
 package calculator;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.*;
 
 class CalculatorTest {
+    private Calculator calculator;
+
+    @BeforeEach
+    void setUp() {
+        calculator = new Calculator();
+    }
+
     @Test
     void add_devrait_retourner_la_somme_de_deux_entiers() {
         // Given
-        Calculator calculator = new Calculator();
         int opG = 5;
         int opD = 3;
 
@@ -23,7 +30,6 @@ class CalculatorTest {
     @Test
     void devide_devrait_retourner_le_quotient_de_deux_entiers() {
         // Given
-        Calculator calculator = new Calculator();
         int opG = 10;
         int opD = 2;
 
