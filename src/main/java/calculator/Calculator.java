@@ -1,11 +1,11 @@
 package calculator;
 
 public class Calculator {
-    public int add(int opG, int opD) {
+    public static int add(int opG, int opD) {
         return opG + opD;
     }
 
-    public int devide(int opG, int opD) {
+    public static int devide(int opG, int opD) {
         return opG / opD;
     }
 }

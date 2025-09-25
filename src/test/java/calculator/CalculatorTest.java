@@ -2,17 +2,12 @@ package calculator;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.*;
 
 class CalculatorTest {
-    private Calculator calculator;
-
-    @BeforeEach
-    void setUp() {
-        calculator = new Calculator();
-    }
 
     @Test
     void add_devrait_retourner_la_somme_de_deux_entiers() {
@@ -21,7 +16,7 @@ class CalculatorTest {
         int opD = 3;
 
         // When
-        int result = calculator.add(opG, opD);
+        int result = Calculator.add(opG, opD);
 
         // Then
         assertThat(result).isEqualTo(8);
@@ -34,7 +29,7 @@ class CalculatorTest {
         int opD = 2;
 
         // When
-        int result = calculator.devide(opG, opD);
+        int result = Calculator.devide(opG, opD);
 
         // Then
         assertThat(result).isEqualTo(5);
