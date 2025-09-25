@@ -109,4 +109,16 @@ class CalculatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("Division by zero is not allowed.");
     }
+
+    @Test
+    void ensembleChiffres_devrait_retourner_0_quand_le_nombre_est_0() {
+        // Given
+        int nombre = 0;
+
+        // When
+        var result = Calculator.ensembleChiffres(nombre);
+
+        // Then
+        assertThat(result).containsExactlyInAnyOrder(0);
+    }
 }
