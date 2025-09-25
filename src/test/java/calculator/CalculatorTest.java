@@ -52,4 +52,16 @@ class CalculatorTest {
         // Then
         assertThat(result).isEqualTo(opG + opD);
     }
+
+    @Test
+    void ensembleChiffres_devrait_retourner_les_chiffres_dans_un_ensemble() {
+        // Given
+        int nombre = -498915042;
+
+        // When
+        var result = Calculator.ensembleChiffres(nombre);
+
+        // Then
+        assertThat(result).containsExactlyInAnyOrder(4, 8, 9, 1, 5, 0, 2);
+    }
 }
