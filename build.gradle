@@ -31,11 +31,19 @@ jacocoTestReport {
 }
 
 jacocoTestCoverageVerification {
-	dependsOn test
 	violationRules {
 		rule {
+			element = 'CLASS'
+			includes = ['com.example.*'] // adjust the package as needed
 			limit {
-				minimum = 0.8.toBigDecimal()
+				counter = 'LINE'
+				value = 'COVEREDRATIO'
+				minimum = 0.80.toBigDecimal() // 80% line coverage
+			}
+			limit {
+				counter = 'BRANCH'
+				value = 'COVEREDRATIO'
+				minimum = 0.70.toBigDecimal() // 70% branch coverage
 			}
 		}
 	}
