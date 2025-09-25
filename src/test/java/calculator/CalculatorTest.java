@@ -64,4 +64,49 @@ class CalculatorTest {
         // Then
         assertThat(result).containsExactlyInAnyOrder(4, 8, 9, 1, 5, 0, 2);
     }
+
+    @Test
+    void add_devrait_lever_exception_pour_debordement() {
+        // Given
+        int opG = Integer.MAX_VALUE;
+        int opD = 1;
+
+        // When
+        Throwable thrown = catchThrowable(() -> Calculator.add(opG, opD));
+
+        // Then
+        assertThat(thrown)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("integer overflow");
+    }
+
+    @Test
+    void add_devrait_lever_exception_pour_sous_debordement() {
+        // Given
+        int opG = Integer.MIN_VALUE;
+        int opD = -1;
+
+        // When
+        Throwable thrown = catchThrowable(() -> Calculator.add(opG, opD));
+
+        // Then
+        assertThat(thrown)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("integer overflow");
+    }
+
+    @Test
+    void devide_devrait_lever_exception_pour_diviseur_nul() {
+        // Given
+        int opG = 10;
+        int opD = 0;
+
+        // When
+        Throwable thrown = catchThrowable(() -> Calculator.devide(opG, opD));
+
+        // Then
+        assertThat(thrown)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Division by zero is not allowed.");
+    }
 }
