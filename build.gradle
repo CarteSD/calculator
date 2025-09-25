@@ -29,3 +29,16 @@ jacocoTestReport {
 		html.outputLocation=layout.projectDirectory.dir('reports/jacoco/test')
 	}
 }
+
+jacocoTestCoverageVerification {
+	dependsOn test
+	violationRules {
+		rule {
+			limit {
+				minimum = 0.8.toBigDecimal()
+			}
+		}
+	}
+}
+
+check.dependsOn jacocoTestCoverageVerification
